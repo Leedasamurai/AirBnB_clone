@@ -1,54 +1,78 @@
-AirBnB Clone Project
-Project Description
-This project is an implementation of a simplified version of the AirBnB web application. The goal is to build a command-line interpreter that manages various AirBnB objects, including users, states, cities, places, amenities, and reviews. The project utilizes a parent class (BaseModel) for object initialization, serialization, and deserialization. Additionally, it introduces a file storage system for storing and retrieving instances.
+# AirBnB Clone
 
-Command Interpreter
-The command interpreter allows users to perform various operations on AirBnB objects through a shell-like interface. Key functionalities include:
+This project is an AirBnB clone developed as part of a larger project. It includes a custom console for managing different classes like BaseModel, State, City, Amenity, Place, and Review. The project uses a custom file storage system for serialization and deserialization of objects.
 
-Creating new objects (e.g., User, Place).
-Retrieving objects from a file or database.
-Performing operations on objects (e.g., counting, computing stats).
-Updating attributes of an object.
-Destroying an object.
-How to Start
-To start the command interpreter, execute the console.py script:
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Classes](#classes)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/AirBnB_clone.git
+Navigate to the project directory:
+
+bash
+Copy code
+cd AirBnB_clone
+Run the console:
 
 bash
 Copy code
 ./console.py
-How to Use
-Once in interactive mode, the prompt will be (hbnb). Users can enter various commands to interact with AirBnB objects. The available commands include:
+Usage
+The console provides a command-line interface to interact with different classes. You can perform actions like show, create, destroy, update, and all on instances of classes such as BaseModel, State, City, Amenity, Place, and Review.
 
-create: Create a new object.
-show: Show the string representation of an object.
-all: Show all instances of a class or all instances in general.
-destroy: Destroy an object based on the class name and id.
-update: Update an object based on the class name and id.
-Examples
-Interactive Mode:
+Example Commands:
+Create a new instance:
 
 bash
 Copy code
-$ ./console.py
-(hbnb) create User
-(hbnb) show User 1234-5678
-(hbnb) all
-(hbnb) destroy User 1234-5678
-(hbnb) update User 1234-5678 name "John Doe"
-(hbnb) quit
-Non-Interactive Mode:
+create BaseModel
+Show details of an instance:
 
 bash
 Copy code
-$ echo "create Place" | ./console.py
-$ cat test_commands
-show Place 1234-5678
-all
-destroy Place 1234-5678
-update Place 1234-5678 name "New Name"
-quit
-$ cat test_commands | ./console.py
-Authors
-This project is maintained by the following contributors:
+show BaseModel 1234-5678
+Destroy an instance:
+
+bash
+Copy code
+destroy BaseModel 1234-5678
+Update an instance attribute:
+
+bash
+Copy code
+update BaseModel 1234-5678 name "New Name"
+List all instances of a class:
+
+bash
+Copy code
+all BaseModel
+Classes
+BaseModel
+The base class for all other classes. It includes common attributes like id, created_at, and updated_at.
+
+State
+Represents a geographical state. Includes a name attribute.
+
+City
+Represents a city. Includes state_id (linked to State.id) and a name attribute.
+
+Amenity
+Represents an amenity. Includes a name attribute.
+
+Place
+Represents a place. Includes attributes like city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, and amenity_ids.
+
+Review
+Represents a review for a place. Includes attributes like place_id, user_id, and text.
+
+Contributing
 
 Lesego Phuku
